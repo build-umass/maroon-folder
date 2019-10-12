@@ -41,7 +41,7 @@ export default CrisisPicker
 const styles = StyleSheet.create({
   text: {
      fontSize: 30,
-     marginTop: 100,
-     color: 'red'
+     fontFamily: 'Cochin',
+     marginTop: height/5
   }
 })

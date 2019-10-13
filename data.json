@@ -1,0 +1,79 @@
+{
+    "crisis": [
+        {
+            "name": "Alcohol, marijuna or drug abuse",
+            "contact": "",
+            "respond": ""
+        },
+        {
+            "name": "Anxiety, stress, panic",
+            "contact": "",
+            "respond": ""
+        },
+        {
+            "name": "Bias Incident",
+            "contact": "",
+            "respond": ""
+        },
+        {
+            "name": "Cyber misbehavior",
+            "contact": "",
+            "respond": ""
+        },
+        {
+            "name": "Disability related challenge",
+            "contact": "",
+            "respond": ""
+        },
+        {
+            "name": "Disruptive classroom behaviors",
+            "contact": "",
+            "respond": ""
+        },
+        {
+            "name": "Disability related challenge",
+            "contact": "",
+            "respond": ""
+        },
+        {
+            "name": "Economic hardship",
+            "contact": "",
+            "respond": ""
+        },
+        {
+            "name": "Harassment, sexual harassment, stalking",
+            "contact": "",
+            "respond": ""
+        },
+        {
+            "name": "Hazing",
+            "contact": "",
+            "respond": ""
+        },
+        {
+            "name": "International crisis or Immigration status issue",
+            "contact": "",
+            "respond": ""
+        },
+        {
+            "name": "Isolation, loneliness",
+            "contact": "",
+            "respond": ""
+        },
+        {
+            "name": "Known or suspected health or medical issues",
+            "contact": "",
+            "respond": ""
+        },
+        {
+            "name": "Personal or family tragedy, loss, or crisis",
+            "contact": "",
+            "respond": ""
+        },
+        {
+            "name": "Relationship/interpersonal violence, sexual assault, stalking",
+            "contact": "",
+            "respond": ""
+        }
+    ]
+}

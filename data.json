@@ -2,21 +2,21 @@
     "crisis": [
         {
             "name": "Not sure what, but something's wrong",
-            "refer": "Urgent: 911\nUMPD (413) 545-3111\nAdvice and consultation:\nCCPH (413) 545-2337",
+            "refer": "Urgent: 911\nUMPD (413) 545-3111\n\nAdvice and consultation:\nCCPH (413) 545-2337",
             "respond": "Express concerns and care\nGive an example of a time that the\nstudent’s behavior has worried you\nListen to and believe student’s responses\nBe supportive and encouraging if\nstudent agrees to get help\nCall 911 if there is a potential threat to\nstudent’s safety or the safety of others",
             "recognize": "",
             "report": "DoS (413) 545-2684\nUndergraduate Dean\numass.edu/registrar/students/\nlist-academic-deans\nGraduate Dean\numass.edu/gradschool"
         },
         {
             "name": "Self harm, suicide ideation, suicidal risk",
-            "refer": "Urgent: 911\nUMPD (413) 545-3111\nAdvice and consultation:\nCCPH (413) 545-2337",
+            "refer": "Urgent: 911\nUMPD (413) 545-3111\n\nAdvice and consultation:\nCCPH (413) 545-2337",
             "respond": "Call 911 if there is a potential threat to\nstudent’s safety or the safety of others\nExpress concern and care\nAlways take suicidal statements,\nthoughts or behaviors very seriosly\nIf you suspect a student may be suicidal,\nseek immediate consultation",
             "recognize": "",
             "report": "DoS (413) 545-2684"
         },
         {
             "name": "Alcohol, marijuna or drug abuse",
-            "refer": "Urgent: 911\nUMPD (413) 545-3111\nAdvice and consultation:\nBASICS (413) 577-5071\nCHP (413) 577-5181\nCCPH (413) 545-2337\nUHS (413) 577-5000",
+            "refer": "Urgent: 911\nUMPD (413) 545-3111\n\nAdvice and consultation:\nBASICS (413) 577-5071\nCHP (413) 577-5181\nCCPH (413) 545-2337\nUHS (413) 577-5000",
             "respond": "Express concern and care\nGive an example of a time that the\nstudent’s begavior has worried you\nBe supportive and encouraging if the\nstudent agrees to get help\nOffer to help the student make an\nappointment with BASICS program for\nalcohol screening and intervention",
             "recognize": "",
             "report": "DoS (413) 545-2684"
@@ -30,7 +30,7 @@
         },
         {
             "name": "Bias Incident",
-            "refer": "Urgent: 911\nUMPD (413) 545-3111\nAdvice and consultation:\nDoS (413) 545-2684\nEO (413) 545-3464\nReport graffiti for removal:\nF&CS (413) 545-6401",
+            "refer": "Urgent: 911\nUMPD (413) 545-3111\n\nAdvice and consultation:\nDoS (413) 545-2684\nEO (413) 545-3464\nReport graffiti for removal:\nF&CS (413) 545-6401",
             "respond": "Express concern and care\nListen to and believe student’s responses\nAvoid criticizing, blaming, sounding\njudgmental, or minimizing the situation\nEncourage student to save photos,\ncommunications, or other evidence\nDo not remove any evidence prior to\nreporting (e.g. clean graffiti, erase\n whiteboard, etc.)",
             "recognize": "",
             "report": "UMPD (413) 545-3111\nEO&D (413) 545-3464"

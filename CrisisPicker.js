@@ -89,13 +89,5 @@ const styles = StyleSheet.create({
     },
     collapseBody: {
         height: height / 5
-    },
-    iconView: {
-        padding: 20,
-        height: 5,
-        width: 5,
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        backgroundColor: '#ffffff',
     }
 })

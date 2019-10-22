@@ -9,11 +9,11 @@ var width = Dimensions.get('window').width;
 const dataVal = data.crisis;
 
 class CrisisPicker extends Component {
-    state = { id: '', crisis: '', contact: '', respond: '', report: '' }
+    state = { id: '', crisis: '', contact: '', respond: '', report: '', show: '' }
     updateCrisis = (id) => {
-        this.setState({ id: id })
+        this.setState({ id: id });
         if (id > -1) {
-            this.setState({ id: id, crisis: dataVal[id].name, contact: dataVal[id].refer, respond: dataVal[id].respond, report: dataVal[id].report })
+            this.setState({ id: id, crisis: dataVal[id].name, contact: dataVal[id].refer, respond: dataVal[id].respond, report: dataVal[id].report});
         }
     }
     render() {
@@ -75,8 +75,8 @@ const styles = StyleSheet.create({
         marginBottom: height / 20
     },
     collapseContainer: {
-        width: '100%',
-        marginTop: 10
+        width: '95%',
+        marginTop: 10,
     },
     collapseTitle: {
         height: 35, 

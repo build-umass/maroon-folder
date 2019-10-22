@@ -7,11 +7,11 @@ var width = Dimensions.get('window').width;
 const dataVal = data.crisis;
 
 class CrisisPicker extends Component {
-    state = { id: '', crisis: '', contact: '', respond: '' }
+    state = { id: '', crisis: '', contact: '', respond: '', report: '' }
     updateCrisis = (id) => {
         this.setState({ id: id})
         if (id > -1) {
-            this.setState({ id: id, crisis: dataVal[id].name, contact: dataVal[id].contact, respond: dataVal[id].respond })
+            this.setState({ id: id, crisis: dataVal[id].name, contact: dataVal[id].refer, respond: dataVal[id].respond, report: dataVal[id].report })
         }
     }
     render() {
@@ -30,6 +30,7 @@ class CrisisPicker extends Component {
                 <Text style={styles.text}>{this.state.id}</Text>
                 <Text>{this.state.contact}</Text>
                 <Text>{this.state.respond}</Text>
+                <Text>{this.state.report}</Text>
             </View>
         );
     }

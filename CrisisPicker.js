@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { View, Picker, Text, StyleSheet, Dimensions } from 'react-native';
+import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
+
 import * as data from './data.json';
 
 var height = Dimensions.get('window').height;
@@ -28,8 +30,26 @@ class CrisisPicker extends Component {
                     })}
                 </Picker>
                 <Text style={styles.textContact}>{this.state.contact}</Text>
-                <Text>{this.state.respond}</Text>
-                <Text>{this.state.report}</Text>
+                <Collapse style={styles.collapseContainer}>
+                    <CollapseHeader>
+                        <View style={styles.collapseTitle}>
+                            <Text style={styles.collapseTitleText}>How to respond?</Text>
+                        </View>
+                    </CollapseHeader>
+                    <CollapseBody style={styles.collapseBody}>
+                        <Text>{this.state.respond}</Text>
+                    </CollapseBody>
+                </Collapse>
+                <Collapse style={styles.collapseContainer}>
+                    <CollapseHeader>
+                        <View style={styles.collapseTitle}>
+                            <Text style={styles.collapseTitleText}>Report</Text>
+                        </View>
+                    </CollapseHeader>
+                    <CollapseBody style={styles.collapseBody}>
+                        <Text>{this.state.report}</Text>
+                    </CollapseBody>
+                </Collapse>
             </View>
         );
     }
@@ -37,12 +57,6 @@ class CrisisPicker extends Component {
 export default CrisisPicker
 
 const styles = StyleSheet.create({
-    textContact: {
-        fontSize: 20,
-        textAlign: "center",
-        fontFamily: 'Cochin',
-        marginTop: height / 5
-    },
     title: {
         fontSize: 30,
         fontFamily: 'Cochin',
@@ -52,5 +66,36 @@ const styles = StyleSheet.create({
         height: 100,
         width: width * 8 / 10,
         marginTop: height / 20
+    },
+    textContact: {
+        fontSize: 20,
+        textAlign: "center",
+        fontFamily: 'Cochin',
+        marginTop: height / 5,
+        marginBottom: height / 20
+    },
+    collapseContainer: {
+        width: '100%',
+        marginTop: 10
+    },
+    collapseTitle: {
+        height: 35, 
+        backgroundColor: '#D3D3D3'
+    },
+    collapseTitleText: {
+        fontSize: 25,
+        textAlign: 'center',
+        fontFamily: 'Cochin'
+    },
+    collapseBody: {
+        height: height / 5
+    },
+    iconView: {
+        padding: 20,
+        height: 5,
+        width: 5,
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        backgroundColor: '#ffffff',
     }
 })

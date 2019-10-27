@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Picker, Text, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { CustomPicker } from 'react-native-custom-picker';
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
 
 import * as data from './data.json';
@@ -7,6 +8,7 @@ import * as data from './data.json';
 var height = Dimensions.get('window').height;
 var width = Dimensions.get('window').width;
 const dataVal = data.crisis;
+const list = dataVal.map((item) => item);
 
 class CrisisPicker extends Component {
     state = { id: '', crisis: '', contact: '', respond: '', report: '', show: '' }
@@ -16,19 +18,36 @@ class CrisisPicker extends Component {
             this.setState({ id: id, crisis: dataVal[id].name, contact: dataVal[id].refer, respond: dataVal[id].respond, report: dataVal[id].report});
         }
     }
+    
+    renderOption(settings) {
+        const { item, getLabel } = settings
+        return (
+            <View style={styles.optionContainer}>
+                <View style={styles.innerContainer}>
+                    <Text style={{ alignSelf: 'flex-start', padding: 8, }}>{getLabel(item.toString())}</Text>
+                </View>
+            </View>
+        )
+    }
+
     render() {
         return (
             <View style={{ flex: 1, alignItems: "center" }}>
                 <Text style={styles.title}>Share what you know</Text>
-                <Picker
-                    selectedValue={this.state.id}
-                    style={styles.dropdown}
-                    onValueChange={this.updateCrisis}>
-                    <Picker.Item label="Select one" value="-1" />
-                    {dataVal.map((item, index) => {
-                        return (<Picker.Item label={item.name} value={index} key={index} />)
-                    })}
-                </Picker>
+                <CustomPicker
+                        optionTemplate={this.renderOption}
+                        options={dataVal.map(item => item.name)}
+                        style={styles.dropdown}
+                        placeholder={'Select one'}
+                        onValueChange={(item) => {
+                            for (i = 0; i < list.length; i++) {
+                                if (list[i].name == item) {
+                                    this.updateCrisis(i);
+                                    break;
+                                }
+                            }
+                        }}
+                    />
                 <Text style={styles.textContact}>{this.state.contact}</Text>
                 <Collapse style={styles.collapseContainer}>
                     <CollapseHeader>
@@ -57,15 +76,28 @@ class CrisisPicker extends Component {
 export default CrisisPicker
 
 const styles = StyleSheet.create({
+    innerContainer: {
+        flexDirection: 'row',
+        alignItems: 'stretch'
+    },
+    optionContainer: {
+        padding: 10,
+        borderBottomColor: 'grey',
+        borderBottomWidth: 1
+    },
     title: {
         fontSize: 30,
         fontFamily: 'Cochin',
         marginTop: height / 10
     },
     dropdown: {
-        height: 100,
-        width: width * 8 / 10,
-        marginTop: height / 20
+        height: 50,
+        width: width * 8/10,
+        alignSelf: 'center',
+        marginTop: height * 0.02,
+        marginHorizontal: width * 0.1,
+        fontSize: 30,
+        fontFamily: 'Cochin',
     },
     textContact: {
         fontSize: 20,

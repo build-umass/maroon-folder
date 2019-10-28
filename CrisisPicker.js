@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { Alert, View, Text, StyleSheet, Dimensions, Linking, SafeAreaView, ScrollView } from 'react-native';
 import { CustomPicker } from 'react-native-custom-picker';
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
+import ParsedText from 'react-native-parsed-text';
 
 import * as data from './data.json';
 
@@ -15,10 +16,10 @@ class CrisisPicker extends Component {
     updateCrisis = (id) => {
         this.setState({ id: id });
         if (id > -1) {
-            this.setState({ id: id, crisis: dataVal[id].name, contact: dataVal[id].refer, respond: dataVal[id].respond, report: dataVal[id].report});
+            this.setState({ id: id, crisis: dataVal[id].name, contact: dataVal[id].refer, respond: dataVal[id].respond, report: dataVal[id].report });
         }
     }
-    
+
     renderOption(settings) {
         const { item, getLabel } = settings
         return (
@@ -30,25 +31,43 @@ class CrisisPicker extends Component {
         )
     }
 
+    handlePhonePress(phone, matchIndex) {
+        Alert.alert(`${phone} has been pressed!`);
+        // Linking.openURL(`tel:${phone}`).catch((err) => console.error('Unable to place a call', err));
+    }
+
     render() {
         return (
+            <SafeAreaView style={styles.container}>
+                <ScrollView style={styles.scrollView}>
             <View style={{ flex: 1, alignItems: "center" }}>
                 <Text style={styles.title}>Share what you know</Text>
                 <CustomPicker
-                        optionTemplate={this.renderOption}
-                        options={dataVal.map(item => item.name)}
-                        style={styles.dropdown}
-                        placeholder={'Select one'}
-                        onValueChange={(item) => {
-                            for (i = 0; i < list.length; i++) {
-                                if (list[i].name == item) {
-                                    this.updateCrisis(i);
-                                    break;
-                                }
+                    optionTemplate={this.renderOption}
+                    options={dataVal.map(item => item.name)}
+                    style={styles.dropdown}
+                    placeholder={'Select one'}
+                    onValueChange={(item) => {
+                        for (i = 0; i < list.length; i++) {
+                            if (list[i].name == item) {
+                                this.updateCrisis(i);
+                                break;
                             }
-                        }}
-                    />
-                <Text style={styles.textContact}>{this.state.contact}</Text>
+                        }
+                    }}
+                />
+                <ParsedText
+                    style={styles.textContact}
+                    parse={
+                        [
+                            { type: 'phone', style: styles.phone, onPress: this.handlePhonePress },
+                        ]
+                    }
+                    childrenProps={{ allowFontScaling: false }}
+                >
+                    {this.state.contact}
+                </ParsedText>
+                <Text style={styles.textContact}></Text>
                 <Collapse style={styles.collapseContainer}>
                     <CollapseHeader>
                         <View style={styles.collapseTitle}>
@@ -70,12 +89,22 @@ class CrisisPicker extends Component {
                     </CollapseBody>
                 </Collapse>
             </View>
+            </ScrollView>
+    </SafeAreaView>
         );
     }
 }
 export default CrisisPicker
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        marginTop: height * 0.005,
+        marginBottom: height * 0.005,
+    },
+    scrollView: {
+        marginHorizontal: 5,
+    },
     innerContainer: {
         flexDirection: 'row',
         alignItems: 'stretch'
@@ -92,18 +121,22 @@ const styles = StyleSheet.create({
     },
     dropdown: {
         height: 50,
-        width: width * 8/10,
+        width: width * 8 / 10,
         alignSelf: 'center',
         marginTop: height * 0.02,
         marginHorizontal: width * 0.1,
         fontSize: 30,
         fontFamily: 'Cochin',
     },
+    phone: {
+        color: 'blue',
+        textDecorationLine: 'underline',
+    },
     textContact: {
         fontSize: 20,
         textAlign: "center",
         fontFamily: 'Cochin',
-        marginTop: height / 5,
+        marginTop: height / 20,
         marginBottom: height / 20
     },
     collapseContainer: {
@@ -111,7 +144,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
     collapseTitle: {
-        height: 35, 
+        height: 35,
         backgroundColor: '#D3D3D3'
     },
     collapseTitleText: {

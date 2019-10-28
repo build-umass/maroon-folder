@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Picker, Text, StyleSheet, Dimensions, SafeAreaView, ScrollView } from 'react-native';
+import { View, Picker, Text, StyleSheet, Dimensions } from 'react-native';
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
 
 import * as data from './data.json';
@@ -18,57 +18,45 @@ class CrisisPicker extends Component {
     }
     render() {
         return (
-            <SafeAreaView style={styles.container}>
-                <ScrollView style={styles.scrollView}>
-                    <View style={{ flex: 1, alignItems: "center" }}>
-                        <Text style={styles.title}>Share what you know</Text>
-                        <Picker
-                            selectedValue={this.state.id}
-                            style={styles.dropdown}
-                            onValueChange={this.updateCrisis}>
-                            <Picker.Item label="Select one" value="-1" />
-                            {dataVal.map((item, index) => {
-                                return (<Picker.Item label={item.name} value={index} key={index} />)
-                            })}
-                        </Picker>
-                        <Text style={styles.textContact}>{this.state.contact}</Text>
-                        <Collapse style={styles.collapseContainer}>
-                            <CollapseHeader>
-                                <View style={styles.collapseTitle}>
-                                    <Text style={styles.collapseTitleText}>How to respond?</Text>
-                                </View>
-                            </CollapseHeader>
-                            <CollapseBody style={styles.collapseBody}>
-                                <Text>{this.state.respond}</Text>
-                            </CollapseBody>
-                        </Collapse>
-                        <Collapse style={styles.collapseContainer}>
-                            <CollapseHeader>
-                                <View style={styles.collapseTitle}>
-                                    <Text style={styles.collapseTitleText}>Report</Text>
-                                </View>
-                            </CollapseHeader>
-                            <CollapseBody style={styles.collapseBody}>
-                                <Text>{this.state.report}</Text>
-                            </CollapseBody>
-                        </Collapse>
-                    </View>
-                </ScrollView>
-            </SafeAreaView>
+            <View style={{ flex: 1, alignItems: "center" }}>
+                <Text style={styles.title}>Share what you know</Text>
+                <Picker
+                    selectedValue={this.state.id}
+                    style={styles.dropdown}
+                    onValueChange={this.updateCrisis}>
+                    <Picker.Item label="Select one" value="-1" />
+                    {dataVal.map((item, index) => {
+                        return (<Picker.Item label={item.name} value={index} key={index} />)
+                    })}
+                </Picker>
+                <Text style={styles.textContact}>{this.state.contact}</Text>
+                <Collapse style={styles.collapseContainer}>
+                    <CollapseHeader>
+                        <View style={styles.collapseTitle}>
+                            <Text style={styles.collapseTitleText}>How to respond?</Text>
+                        </View>
+                    </CollapseHeader>
+                    <CollapseBody style={styles.collapseBody}>
+                        <Text>{this.state.respond}</Text>
+                    </CollapseBody>
+                </Collapse>
+                <Collapse style={styles.collapseContainer}>
+                    <CollapseHeader>
+                        <View style={styles.collapseTitle}>
+                            <Text style={styles.collapseTitleText}>Report</Text>
+                        </View>
+                    </CollapseHeader>
+                    <CollapseBody style={styles.collapseBody}>
+                        <Text>{this.state.report}</Text>
+                    </CollapseBody>
+                </Collapse>
+            </View>
         );
     }
 }
 export default CrisisPicker
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        marginTop: height * 0.005,
-        marginBottom: height * 0.005,
-    },
-    scrollView: {
-        marginHorizontal: 5,
-    },
     title: {
         fontSize: 30,
         fontFamily: 'Cochin',

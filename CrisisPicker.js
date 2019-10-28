@@ -38,6 +38,8 @@ class CrisisPicker extends Component {
 
     render() {
         return (
+            <SafeAreaView style={styles.container}>
+                <ScrollView style={styles.scrollView}>
             <View style={{ flex: 1, alignItems: "center" }}>
                 <Text style={styles.title}>Share what you know</Text>
                 <CustomPicker
@@ -87,12 +89,22 @@ class CrisisPicker extends Component {
                     </CollapseBody>
                 </Collapse>
             </View>
+            </ScrollView>
+    </SafeAreaView>
         );
     }
 }
 export default CrisisPicker
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        marginTop: height * 0.005,
+        marginBottom: height * 0.005,
+    },
+    scrollView: {
+        marginHorizontal: 5,
+    },
     innerContainer: {
         flexDirection: 'row',
         alignItems: 'stretch'

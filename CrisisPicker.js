@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, View, Text, StyleSheet, Dimensions, Linking } from 'react-native';
+import { Alert, View, Text, StyleSheet, Dimensions, Linking, SafeAreaView, ScrollView } from 'react-native';
 import { CustomPicker } from 'react-native-custom-picker';
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
 import ParsedText from 'react-native-parsed-text';

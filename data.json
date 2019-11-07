@@ -112,5 +112,70 @@
             "recognize": "",
             "report": "DoS (413) 545-2684\nTitle IX Coordination Team\nEO (413) 545-3464Advice and consultation:\nCWC (413) 545-0883\nCCPH (413) 545-2337\nDoS (413) 545-2684\nUHS (413) 577-5000"
         }
-    ]
-}
+    ],
+    "options": [
+        {
+            "key": 0,
+            "label": "Not sure what, but something's wrong"
+        },
+        {
+            "key": 1,
+            "label": "Self harm, suicide ideation, suicidal risk"
+        },
+        {
+            "key": 2,
+            "label": "Alcohol, marijuna or drug abuse"
+        },
+        {
+            "key": 3,
+            "label": "Anxiety, stress, panic"
+        },
+        {
+            "key": 4,
+            "label": "Bias Incident"
+        },
+        {
+            "key": 5,
+            "label": "Cyber misbehavior"
+        },
+        {
+            "key": 6,
+            "label": "Disability related challenge"
+        },
+        {
+            "key": 7,
+            "label": "Disruptive classroom behaviors"
+        },
+        {
+            "key": 8,
+            "label": "Economic hardship"
+        },
+        {
+            "key": 9,
+            "label": "Harassment, sexual harassment, stalking"
+        },
+        {
+            "key": 10,
+            "label": "Hazing"
+        },
+        {
+            "key": 11,
+            "label": "International crisis or Immigration status issue"
+        },
+        {
+            "key": 12,
+            "label": "Isolation, loneliness, difficulty transitioning into or out of the university community"
+        },
+        {
+            "key": 13,
+            "label": "Known or suspected health or medical issues"
+        },
+        {
+            "key": 14,
+            "label": "Personal or family tragedy, loss, or crisis"
+        },
+        {
+            "key": 15,
+            "label": "Relationship/interpersonal violence, sexual assault, stalking"
+        }
+    ]}

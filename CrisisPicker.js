@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Alert, View, Text, StyleSheet, Dimensions, Linking, SafeAreaView, ScrollView, Image} from 'react-native';
 import { CustomPicker } from 'react-native-custom-picker';
+import ModalSelector from 'react-native-modal-selector'
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
 import ParsedText from 'react-native-parsed-text';
 
@@ -14,6 +15,7 @@ var width = Dimensions.get('window').width;
 import { Thumbnail, List, ListItem, Separator } from 'native-base';
 
 const dataVal = data.crisis;
+const options = data.options;
 const list = dataVal.map((item) => item);
 
 class CrisisPicker extends Component {
@@ -72,51 +74,72 @@ class CrisisPicker extends Component {
               title = {"Report"}
               data = {this.state.report}
           />
-        } 
+        }
 
         return (
-          <SafeAreaView style={styles.container}>
-              <ScrollView style={styles.scrollView}>
-                <View style={{ flex: 1, alignItems: "center" }}>
-                  <Text style={styles.title}>Share what you know</Text>
-                  <CustomPicker
-                      optionTemplate={this.renderOption}
-                      options={dataVal.map(item => item.name)}
-                      style={styles.dropdown}
-                      placeholder={'Select one'}
-                      onValueChange={(item) => {
-                          for (i = 0; i < list.length; i++) {
-                              if (list[i].name == item) {
-                                  this.updateCrisis(i);
-                                  break;
-                              }
-                          }
-                      }}
-                  />
-                  <ParsedText
-                      style={styles.textContact}
-                      parse={
-                          [
-                              { type: 'phone', style: styles.phone, onPress: this.handlePhonePress },
-                          ]
-                      }
-                      childrenProps={{ allowFontScaling: false }}
-                  >
-                      {this.state.contact}
-                  </ParsedText>
-                  <View style={styles.answer}>
-                    {comp}
-                    {comp2}
-                  </View>
-          </View>
-          </ScrollView>
-          </SafeAreaView>
+            <SafeAreaView style={styles.container}>
+                <ScrollView style={styles.scrollView}>
+            <View style={{ flex: 1, alignItems: "center" }}>
+                <Text style={styles.title}>Share what you know</Text>
+                <ModalSelector
+                            animationType={"fade"}
+                            style={styles.dropdown}
+                            data={options}
+
+                            optionTextStyle={styles.optionTextStyle}
+                            optionContainerStyle={styles.optionsContainerStyle}
+
+                            cancelContainerStyle={styles.cancelContainerStyle}
+                            cancelTextStyle={styles.cancelTextStyle}
+                            initValue="Select one"
+                            onChange={option => {
+                                for (var i = 0; i < list.length; i++) {
+                                    if (list[i].name == option.label) {
+                                        this.updateCrisis(i);
+                                        break;
+                                    }
+                                }
+                            }} />
+                <ParsedText
+                    style={styles.textContact}
+                    parse={
+                        [
+                            { type: 'phone', style: styles.phone, onPress: this.handlePhonePress },
+                        ]
+                    }
+                    childrenProps={{ allowFontScaling: false }}
+                >
+                    {this.state.contact}
+                </ParsedText>
+                <Text style={styles.textContact}></Text>
+                <View style={styles.answer}>
+                  {comp}
+                  {comp2}
+                </View>
+            </View>
+            </ScrollView>
+    </SafeAreaView>
         );
     }
 
 }
 
 const styles = StyleSheet.create({
+    optionsContainerStyle: {
+        backgroundColor: 'white',
+    },
+    optionTextStyle: {
+        backgroundColor: 'white',
+    },
+    cancelTextStyle: {
+        textTransform: 'capitalize',
+        backgroundColor: 'white',
+    },
+    cancelContainerStyle: {
+        backgroundColor: 'white',
+        borderRadius: 5
+
+    },
     answer: {
       flex:1,
       width: '95%',
@@ -147,6 +170,7 @@ const styles = StyleSheet.create({
         width: width * 8 / 10,
         alignSelf: 'center',
         marginTop: height * 0.02,
+        marginBottom: height * 0.02,
         marginHorizontal: width * 0.1,
         fontSize: 30,
         fontFamily: 'Cochin',

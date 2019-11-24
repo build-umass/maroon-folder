@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 30,
-        fontFamily: 'Cochin',
+        fontFamily: 'OpenSans-Bold',
         marginTop: height / 10
     },
     dropdown: {
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
         marginBottom: height * 0.02,
         marginHorizontal: width * 0.1,
         fontSize: 30,
-        fontFamily: 'Cochin',
+        fontFamily: 'Minion-Pro',
     },
     phone: {
         color: 'blue',
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
     textContact: {
         fontSize: 20,
         textAlign: "center",
-        fontFamily: 'Cochin',
+        fontFamily: 'OpenSans',
         marginTop: height / 20,
         marginBottom: height / 20
     },
@@ -199,7 +199,8 @@ const styles = StyleSheet.create({
     collapseTitleText: {
         fontSize: 25,
         textAlign: 'center',
-        fontFamily: 'Cochin'
+        fontFamily: 'OpenSans',
+
     },
     collapseBody: {
         height: height / 5

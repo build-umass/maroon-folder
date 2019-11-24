@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     font:{
-       // fontFamily: Fonts.bold,
+       // fontFamily: 'Minion-Pro-Regular'
     },
     button:{
         width:'100%',

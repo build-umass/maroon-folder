@@ -11,11 +11,13 @@
   },
   "dependencies": {
     "accordion-collapse-react-native": "^0.1.11",
+    "native-base": "^2.13.8",
     "react": "16.9.0",
     "react-native": "0.61.2",
     "react-native-custom-picker": "^0.4.0",
     "react-native-modal-selector": "^1.1.2",
-    "react-native-parsed-text": "0.0.21"
+    "react-native-parsed-text": "0.0.21",
+    "react-native-vector-icons": "^6.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",

@@ -1,18 +1,45 @@
 import React, { Component } from 'react';
-import { Alert, View, Text, StyleSheet, Dimensions, Linking, SafeAreaView, ScrollView } from 'react-native';
+import { Alert, View, Text, StyleSheet, Dimensions, Linking, SafeAreaView, ScrollView, Image} from 'react-native';
 import { CustomPicker } from 'react-native-custom-picker';
+import ModalSelector from 'react-native-modal-selector'
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
 import ParsedText from 'react-native-parsed-text';
 
-import * as data from './data.json';
+import Accordian from './app/Accordian'
+import { Colors } from './app/Colors';
 
+import * as data from './data.json';
 var height = Dimensions.get('window').height;
 var width = Dimensions.get('window').width;
+
+import { Thumbnail, List, ListItem, Separator } from 'native-base';
+
 const dataVal = data.crisis;
+const options = data.options;
 const list = dataVal.map((item) => item);
 
 class CrisisPicker extends Component {
-    state = { id: '', crisis: '', contact: '', respond: '', report: '', show: '' }
+
+    constructor(props){
+        super(props);
+
+        this.icons = {
+            'up'    : require('./images/Arrowhead-01-128.png'),
+            'down'  : require('./images/Arrowhead-Down-01-128.png')
+        };
+
+        this.state = {
+          // collapsed1:false, //do not show the body by default
+          // collapsed2:false,
+          id: '',
+          crisis: '',
+          contact: '',
+          respond: '',
+          report: '',
+          show: ''
+        }
+    }
+
     updateCrisis = (id) => {
         this.setState({ id: id });
         if (id > -1) {
@@ -37,25 +64,42 @@ class CrisisPicker extends Component {
     }
 
     render() {
+        let comp, comp2;
+        if(this.state.respond != '') {
+          comp = <Accordian
+              title = {"How to Respond?"}
+              data = {this.state.respond}
+          />
+          comp2 = <Accordian
+              title = {"Report"}
+              data = {this.state.report}
+          />
+        }
+
         return (
             <SafeAreaView style={styles.container}>
                 <ScrollView style={styles.scrollView}>
             <View style={{ flex: 1, alignItems: "center" }}>
                 <Text style={styles.title}>Share what you know</Text>
-                <CustomPicker
-                    optionTemplate={this.renderOption}
-                    options={dataVal.map(item => item.name)}
-                    style={styles.dropdown}
-                    placeholder={'Select one'}
-                    onValueChange={(item) => {
-                        for (i = 0; i < list.length; i++) {
-                            if (list[i].name == item) {
-                                this.updateCrisis(i);
-                                break;
-                            }
-                        }
-                    }}
-                />
+                <ModalSelector
+                            animationType={"fade"}
+                            style={styles.dropdown}
+                            data={options}
+
+                            optionTextStyle={styles.optionTextStyle}
+                            optionContainerStyle={styles.optionsContainerStyle}
+
+                            cancelContainerStyle={styles.cancelContainerStyle}
+                            cancelTextStyle={styles.cancelTextStyle}
+                            initValue="Select one"
+                            onChange={option => {
+                                for (var i = 0; i < list.length; i++) {
+                                    if (list[i].name == option.label) {
+                                        this.updateCrisis(i);
+                                        break;
+                                    }
+                                }
+                            }} />
                 <ParsedText
                     style={styles.textContact}
                     parse={
@@ -68,37 +112,39 @@ class CrisisPicker extends Component {
                     {this.state.contact}
                 </ParsedText>
                 <Text style={styles.textContact}></Text>
-                <Collapse style={styles.collapseContainer}>
-                    <CollapseHeader>
-                        <View style={styles.collapseTitle}>
-                            <Text style={styles.collapseTitleText}>How to respond?</Text>
-                        </View>
-                    </CollapseHeader>
-                    <CollapseBody style={styles.collapseBody}>
-                        <Text>{this.state.respond}</Text>
-                    </CollapseBody>
-                </Collapse>
-                <Collapse style={styles.collapseContainer}>
-                    <CollapseHeader>
-                        <View style={styles.collapseTitle}>
-                            <Text style={styles.collapseTitleText}>Report</Text>
-                        </View>
-                    </CollapseHeader>
-                    <CollapseBody style={styles.collapseBody}>
-                        <Text>{this.state.report}</Text>
-                    </CollapseBody>
-                </Collapse>
+                <View style={styles.answer}>
+                  {comp}
+                  {comp2}
+                </View>
             </View>
             </ScrollView>
     </SafeAreaView>
         );
     }
+
 }
-export default CrisisPicker
 
 const styles = StyleSheet.create({
+    optionsContainerStyle: {
+        backgroundColor: 'white',
+    },
+    optionTextStyle: {
+        backgroundColor: 'white',
+    },
+    cancelTextStyle: {
+        textTransform: 'capitalize',
+        backgroundColor: 'white',
+    },
+    cancelContainerStyle: {
+        backgroundColor: 'white',
+        borderRadius: 5
+
+    },
+    answer: {
+      flex:1,
+      width: '95%',
+    },
     container: {
-        flex: 1,
         marginTop: height * 0.005,
         marginBottom: height * 0.005,
     },
@@ -116,7 +162,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 30,
-        fontFamily: 'Cochin',
+        fontFamily: 'OpenSans-Bold',
         marginTop: height / 10
     },
     dropdown: {
@@ -124,9 +170,10 @@ const styles = StyleSheet.create({
         width: width * 8 / 10,
         alignSelf: 'center',
         marginTop: height * 0.02,
+        marginBottom: height * 0.02,
         marginHorizontal: width * 0.1,
         fontSize: 30,
-        fontFamily: 'Cochin',
+        fontFamily: 'Minion-Pro',
     },
     phone: {
         color: 'blue',
@@ -135,7 +182,7 @@ const styles = StyleSheet.create({
     textContact: {
         fontSize: 20,
         textAlign: "center",
-        fontFamily: 'Cochin',
+        fontFamily: 'OpenSans',
         marginTop: height / 20,
         marginBottom: height / 20
     },
@@ -145,14 +192,23 @@ const styles = StyleSheet.create({
     },
     collapseTitle: {
         height: 35,
-        backgroundColor: '#D3D3D3'
+        backgroundColor: '#D3D3D3',
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     },
     collapseTitleText: {
         fontSize: 25,
         textAlign: 'center',
-        fontFamily: 'Cochin'
+        fontFamily: 'OpenSans',
+
     },
     collapseBody: {
         height: height / 5
+    },
+    buttonImage: {
+        height: 25,
+        width: 25,
     }
-})
+});
+
+export default CrisisPicker;

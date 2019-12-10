@@ -166,15 +166,10 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1
     },
     title: {
-<<<<<<< HEAD
         fontSize: 40,
         fontWeight: 'bold',
         fontFamily: 'Times New Roman',
         color: 'rgb(136, 28, 28)',
-=======
-        fontSize: 30,
-        fontFamily: 'OpenSans-Bold',
->>>>>>> 74c9955518d09fd946b7f050376c82a28abfa89b
         marginTop: height / 10
     },
     dropdown: {
@@ -185,11 +180,7 @@ const styles = StyleSheet.create({
         marginBottom: height * 0.02,
         marginHorizontal: width * 0.1,
         fontSize: 30,
-<<<<<<< HEAD
         fontFamily: 'Helvetica',
-=======
-        fontFamily: 'Minion-Pro',
->>>>>>> 74c9955518d09fd946b7f050376c82a28abfa89b
     },
     phone: {
         color: 'blue',
@@ -198,11 +189,7 @@ const styles = StyleSheet.create({
     textContact: {
         fontSize: 20,
         textAlign: "center",
-<<<<<<< HEAD
         fontFamily: 'Helvetica',
-=======
-        fontFamily: 'OpenSans',
->>>>>>> 74c9955518d09fd946b7f050376c82a28abfa89b
         marginTop: height / 20,
         marginBottom: height / 20
     },
@@ -212,34 +199,16 @@ const styles = StyleSheet.create({
     },
     collapseTitle: {
         height: 35,
-<<<<<<< HEAD
         backgroundColor: 'rgb(136, 28, 28)'
-=======
-        backgroundColor: '#D3D3D3',
-        flexDirection: 'row',
-        justifyContent: 'space-between'
->>>>>>> 74c9955518d09fd946b7f050376c82a28abfa89b
     },
     collapseTitleText: {
         fontSize: 23,
         textAlign: 'center',
-<<<<<<< HEAD
         fontFamily: 'Helvetica',
         color: 'white'
     },
     collapseBody: {
        // height: height / 5
-=======
-        fontFamily: 'OpenSans',
-
-    },
-    collapseBody: {
-        height: height / 5
-    },
-    buttonImage: {
-        height: 25,
-        width: 25,
->>>>>>> 74c9955518d09fd946b7f050376c82a28abfa89b
     }
 });
 

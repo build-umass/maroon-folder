@@ -105,14 +105,19 @@ export default CrisisPicker
 
 const styles = StyleSheet.create({
     optionsContainerStyle: {
+        borderBottomColor: 'rgb(136, 28, 28)',
         backgroundColor: 'white',
     },
     optionTextStyle: {
+        fontFamily: 'Helvetica',
         backgroundColor: 'white',
+        color: 'rgb(136, 28, 28)',
     },
     cancelTextStyle: {
+        fontFamily: 'Helvetica',
         textTransform: 'capitalize',
         backgroundColor: 'white',
+        color: 'black',
     },
     cancelContainerStyle: {
         backgroundColor: 'white',
@@ -133,12 +138,14 @@ const styles = StyleSheet.create({
     },
     optionContainer: {
         padding: 10,
-        borderBottomColor: 'grey',
+        borderBottomColor: 'rgb(136, 28, 28)',
         borderBottomWidth: 1
     },
     title: {
-        fontSize: 30,
-        fontFamily: 'Cochin',
+        fontSize: 40,
+        fontWeight: 'bold',
+        fontFamily: 'Times New Roman',
+        color: 'rgb(136, 28, 28)',
         marginTop: height / 10
     },
     dropdown: {
@@ -149,7 +156,7 @@ const styles = StyleSheet.create({
         marginBottom: height * 0.02,
         marginHorizontal: width * 0.1,
         fontSize: 30,
-        fontFamily: 'Cochin',
+        fontFamily: 'Helvetica',
     },
     phone: {
         color: 'blue',
@@ -158,7 +165,7 @@ const styles = StyleSheet.create({
     textContact: {
         fontSize: 20,
         textAlign: "center",
-        fontFamily: 'Cochin',
+        fontFamily: 'Helvetica',
         marginTop: height / 20,
         marginBottom: height / 20
     },
@@ -168,14 +175,15 @@ const styles = StyleSheet.create({
     },
     collapseTitle: {
         height: 35,
-        backgroundColor: '#D3D3D3'
+        backgroundColor: 'rgb(136, 28, 28)'
     },
     collapseTitleText: {
-        fontSize: 25,
+        fontSize: 23,
         textAlign: 'center',
-        fontFamily: 'Cochin'
+        fontFamily: 'Helvetica',
+        color: 'white'
     },
     collapseBody: {
-        height: height / 5
+       // height: height / 5
     }
 })

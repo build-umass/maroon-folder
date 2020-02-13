@@ -19,13 +19,13 @@ export default class Accordian extends Component{
       <View>
            <TouchableOpacity style={styles.row} onPress={()=>this.toggleExpand()}>
                <Text style={[styles.title, styles.font]}>{this.props.title}</Text>
-               <Icon name={this.state.expanded ? 'keyboard-arrow-up' : 'keyboard-arrow-down'} size={30} color={Colors.DARKGRAY} />
+               <Icon name={this.state.expanded ? 'keyboard-arrow-up' : 'keyboard-arrow-down'} size={30} color={Colors.WHITE} />
            </TouchableOpacity>
            <View style={styles.parentHr}/>
            {
                this.state.expanded &&
-               <View style={styles.child}>
-                   <Text>{this.props.data}</Text>
+               <View style={styles.childView}>
+                   <Text style= {styles.child}>{this.props.data}</Text>
                </View>
            }
       </View>
@@ -60,26 +60,28 @@ const styles = StyleSheet.create({
         paddingLeft:35,
         paddingRight:35,
         fontSize: 12,
+        backgroundColor: 'rgb(136, 28, 28)'
     },
     title:{
-        fontSize: 14,
+        fontSize: 16,
         fontWeight:'bold',
-        color: Colors.DARKGRAY,
+        color: Colors.WHITE,
+        fontFamily: 'Helvetica'
     },
-    itemActive:{
-        fontSize: 12,
-        color: Colors.GREEN,
-    },
-    itemInActive:{
-        fontSize: 12,
-        color: Colors.DARKGRAY,
-    },
-    btnActive:{
-        borderColor: Colors.GREEN,
-    },
-    btnInActive:{
-        borderColor: Colors.DARKGRAY,
-    },
+    // itemActive:{
+    //     fontSize: 12,
+    //     color: Colors.GREEN,
+    // },
+    // itemInActive:{
+    //     fontSize: 12,
+    //     color: Colors.DARKGRAY,
+    // },
+    // btnActive:{
+    //     borderColor: Colors.GREEN,
+    // },
+    // btnInActive:{
+    //     borderColor: Colors.DARKGRAY,
+    // },
     row:{
         flexDirection: 'row',
         justifyContent:'space-between',
@@ -87,7 +89,7 @@ const styles = StyleSheet.create({
         paddingLeft:25,
         paddingRight:18,
         alignItems:'center',
-        backgroundColor: Colors.CGRAY,
+        backgroundColor: 'rgb(136, 28, 28)',
     },
     childRow:{
         flexDirection: 'row',
@@ -109,6 +111,16 @@ const styles = StyleSheet.create({
     },
     colorInActive:{
         borderColor: Colors.DARKGRAY,
+    },
+    child:{
+        paddingTop: 10,
+        textAlign: 'left',
+        fontSize: 17,
+        fontFamily: 'Helvetica',
+        paddingBottom: 15,
+    },
+    childView:{
+       
     }
 
 });

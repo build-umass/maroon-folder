@@ -64,10 +64,13 @@ class CrisisPicker extends Component {
     }
 
     render() {
+    
         let comp, comp2;
         if(this.state.respond != '') {
           comp = <Accordian
-              title = {"How to Respond?"}
+           style= {styles.collapseContainer}
+
+              title = {"How to Respond?"} 
               data = {this.state.respond}
           />
           comp2 = <Accordian
@@ -75,6 +78,7 @@ class CrisisPicker extends Component {
               data = {this.state.report}
           />
         }
+    
 
         return (
             <SafeAreaView style={styles.container}>
@@ -113,9 +117,11 @@ class CrisisPicker extends Component {
                 </ParsedText>
                 <Text style={styles.textContact}></Text>
                 <View style={styles.answer}>
-                  {comp}
+                <View style={styles.collapseContainer}>
+                {comp} 
                   {comp2}
-                </View>
+                  </View>
+               </View>
             </View>
             </ScrollView>
     </SafeAreaView>
@@ -132,7 +138,7 @@ const styles = StyleSheet.create({
     optionTextStyle: {
         fontFamily: 'Helvetica',
         backgroundColor: 'white',
-        color: 'rgb(136, 28, 28)',
+        color: 'black',
     },
     cancelTextStyle: {
         fontFamily: 'Helvetica',
@@ -191,24 +197,26 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontFamily: 'Helvetica',
         marginTop: height / 20,
-        marginBottom: height / 20
+        marginBottom: height / 50
     },
     collapseContainer: {
-        width: '95%',
+        width: '100%',
         marginTop: 10,
     },
     collapseTitle: {
         height: 35,
-        backgroundColor: 'rgb(136, 28, 28)'
+        color: 'rgb(136, 28, 28)'
     },
     collapseTitleText: {
-        fontSize: 23,
-        textAlign: 'center',
+        fontSize: 27,
         fontFamily: 'Helvetica',
         color: 'white'
     },
     collapseBody: {
-       // height: height / 5
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+
     }
 });
 

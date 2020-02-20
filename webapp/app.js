@@ -32,12 +32,16 @@ const destFilename = 'data.json';
 
 
 
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const app = express();
+const port = 3000;
+
+// Remember to add this for rendering CSS
+app.use(express.static(__dirname));
+
 
 app.get('/downloads', async (req, res) => {
-  
+
   (async() => {
 
     try {
@@ -50,7 +54,7 @@ app.get('/downloads', async (req, res) => {
 
       console.log(error)
     }
-    
+
   })()
 
   res.render('index.html')
@@ -69,7 +73,7 @@ async function downloadFile() {
     destination: destFilename
   };
 
-  
+
   await storage
     .bucket(bucketName)
     .file(srcFilename)

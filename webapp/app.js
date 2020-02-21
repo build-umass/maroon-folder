@@ -57,7 +57,7 @@ app.get('/downloads', async (req, res) => {
 
   })()
 
-  res.render('index.html')
+  // res.render('index.html')
 })
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'));

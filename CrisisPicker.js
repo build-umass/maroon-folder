@@ -113,8 +113,26 @@ class CrisisPicker extends Component {
                 </ParsedText>
                 <Text style={styles.textContact}></Text>
                 <View style={styles.answer}>
-                  {comp}
-                  {comp2}
+                <Collapse style={styles.collapseContainer}>
+                    <CollapseHeader>
+                        <View style={styles.collapseTitle}>
+                            <Text style={styles.collapseTitleText}>How to respond?</Text>
+                        </View>
+                    </CollapseHeader>
+                    <CollapseBody style={styles.collapseBody}>
+                        <Text>{this.state.respond}</Text>
+                    </CollapseBody>
+                </Collapse>
+                <Collapse style={styles.collapseContainer}>
+                    <CollapseHeader>
+                        <View style={styles.collapseTitle}>
+                            <Text style={styles.collapseTitleText}>Report</Text>
+                        </View>
+                    </CollapseHeader>
+                    <CollapseBody style={styles.collapseBody}>
+                        <Text>{this.state.report}</Text>
+                    </CollapseBody>
+                </Collapse>
                 </View>
             </View>
             </ScrollView>

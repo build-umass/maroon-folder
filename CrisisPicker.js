@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, View, Text, StyleSheet, Dimensions, Linking, SafeAreaView, ScrollView, Image} from 'react-native';
+import { Picker, Alert, View, Text, StyleSheet, Dimensions, Linking, SafeAreaView, ScrollView, Image } from 'react-native';
 import { CustomPicker } from 'react-native-custom-picker';
 import ModalSelector from 'react-native-modal-selector'
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
@@ -20,23 +20,23 @@ const list = dataVal.map((item) => item);
 
 class CrisisPicker extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.icons = {
-            'up'    : require('./images/Arrowhead-01-128.png'),
-            'down'  : require('./images/Arrowhead-Down-01-128.png')
+            'up': require('./images/Arrowhead-01-128.png'),
+            'down': require('./images/Arrowhead-Down-01-128.png')
         };
 
         this.state = {
-          // collapsed1:false, //do not show the body by default
-          // collapsed2:false,
-          id: '',
-          crisis: '',
-          contact: '',
-          respond: '',
-          report: '',
-          show: ''
+            // collapsed1:false, //do not show the body by default
+            // collapsed2:false,
+            id: '',
+            crisis: '',
+            contact: '',
+            respond: '',
+            report: '',
+            show: ''
         }
     }
 
@@ -65,23 +65,23 @@ class CrisisPicker extends Component {
 
     render() {
         let comp, comp2;
-        if(this.state.respond != '') {
-          comp = <Accordian
-              title = {"How to Respond?"}
-              data = {this.state.respond}
-          />
-          comp2 = <Accordian
-              title = {"Report"}
-              data = {this.state.report}
-          />
+        if (this.state.respond != '') {
+            comp = <Accordian
+                title={"How to Respond?"}
+                data={this.state.respond}
+            />
+            comp2 = <Accordian
+                title={"Report"}
+                data={this.state.report}
+            />
         }
 
         return (
             <SafeAreaView style={styles.container}>
                 <ScrollView style={styles.scrollView}>
-            <View style={{ flex: 1, alignItems: "center" }}>
-                <Text style={styles.title}>Share what you know</Text>
-                <ModalSelector
+                    <View style={{ flex: 1, alignItems: "center" }}>
+                        <Text style={styles.title}>Recognize and Respond</Text>
+                        {/* <ModalSelector
                             animationType={"fade"}
                             style={styles.dropdown}
                             data={options}
@@ -99,44 +99,54 @@ class CrisisPicker extends Component {
                                         break;
                                     }
                                 }
-                            }} />
-                <ParsedText
-                    style={styles.textContact}
-                    parse={
-                        [
-                            { type: 'phone', style: styles.phone, onPress: this.handlePhonePress },
-                        ]
-                    }
-                    childrenProps={{ allowFontScaling: false }}
-                >
-                    {this.state.contact}
-                </ParsedText>
-                <Text style={styles.textContact}></Text>
-                <View style={styles.answer}>
-                <Collapse style={styles.collapseContainer}>
-                    <CollapseHeader>
-                        <View style={styles.collapseTitle}>
-                            <Text style={styles.collapseTitleText}>How to respond?</Text>
+                            }} /> */}
+                        <Picker
+                            selectedValue={this.state.id}
+                            style={styles.dropdown}
+                            onValueChange={this.updateCrisis}>
+                            <Picker.Item label="Select one" value="-1" />
+                            {dataVal.map((item, index) => {
+                                return (<Picker.Item label={item.name} value={index} key={index} />)
+                            })}
+                        </Picker>
+
+                        <ParsedText
+                            style={styles.textContact}
+                            parse={
+                                [
+                                    { type: 'phone', style: styles.phone, onPress: this.handlePhonePress },
+                                ]
+                            }
+                            childrenProps={{ allowFontScaling: false }}
+                        >
+                            {this.state.contact}
+                        </ParsedText>
+                        <Text style={styles.textContact}></Text>
+                        <View style={styles.answer}>
+                            <Collapse style={styles.collapseContainer}>
+                                <CollapseHeader>
+                                    <View style={styles.collapseTitle}>
+                                        <Text style={styles.collapseTitleText}>How to respond?</Text>
+                                    </View>
+                                </CollapseHeader>
+                                <CollapseBody style={styles.collapseBody}>
+                                    <Text>{this.state.respond}</Text>
+                                </CollapseBody>
+                            </Collapse>
+                            <Collapse style={styles.collapseContainer}>
+                                <CollapseHeader>
+                                    <View style={styles.collapseTitle}>
+                                        <Text style={styles.collapseTitleText}>Report</Text>
+                                    </View>
+                                </CollapseHeader>
+                                <CollapseBody style={styles.collapseBody}>
+                                    <Text>{this.state.report}</Text>
+                                </CollapseBody>
+                            </Collapse>
                         </View>
-                    </CollapseHeader>
-                    <CollapseBody style={styles.collapseBody}>
-                        <Text>{this.state.respond}</Text>
-                    </CollapseBody>
-                </Collapse>
-                <Collapse style={styles.collapseContainer}>
-                    <CollapseHeader>
-                        <View style={styles.collapseTitle}>
-                            <Text style={styles.collapseTitleText}>Report</Text>
-                        </View>
-                    </CollapseHeader>
-                    <CollapseBody style={styles.collapseBody}>
-                        <Text>{this.state.report}</Text>
-                    </CollapseBody>
-                </Collapse>
-                </View>
-            </View>
-            </ScrollView>
-    </SafeAreaView>
+                    </View>
+                </ScrollView>
+            </SafeAreaView>
         );
     }
 
@@ -164,8 +174,8 @@ const styles = StyleSheet.create({
 
     },
     answer: {
-      flex:1,
-      width: '95%',
+        flex: 1,
+        width: '95%',
     },
     container: {
         marginTop: height * 0.005,
@@ -226,7 +236,7 @@ const styles = StyleSheet.create({
         color: 'white'
     },
     collapseBody: {
-       // height: height / 5
+        // height: height / 5
     }
 });
 

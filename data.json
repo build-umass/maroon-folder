@@ -30,7 +30,7 @@
         },
         {
             "name": "Bias Incident",
-            "refer": "Urgent: 911\nUMPD (413) 545-3111\n\nAdvice and consultation:\nDoS (413) 545-2684\nEO (413) 545-3464\nReport graffiti for removal:\nF&CS (413) 545-6401",
+            "refer": "Urgent: 911\nUMPD (413) 545-3111\n\nAdvice and consultation:\nDoS (413) 545-2684\nEO (413) 545-3464\n\nReport graffiti for removal:\nF&CS (413) 545-6401",
             "respond": "Express concern and care\nListen to and believe student’s responses\nAvoid criticizing, blaming, sounding judgmental, or minimizing the situation\nEncourage student to save photos, communications, or other evidence\nDo not remove any evidence prior to reporting (e.g. clean graffiti, erase whiteboard, etc.)",
             "recognize": "",
             "report": "UMPD (413) 545-3111\nEO&D (413) 545-3464"
@@ -58,7 +58,7 @@
         },
         {
             "name": "Economic hardship",
-            "refer": "Advice and consultation:\nDoS (413) 545-2684\nSingle-Stop Resources\numass.edu/studentlife/\nsingle-stop\nEmergency Loan Program\n(413) 545-2684",
+            "refer": "Advice and consultation:\nDoS (413) 545-2684\n\nSingle-Stop Resources:\numass.edu/studentlife/single-stop\n\nEmergency Loan Program:\n(413) 545-2684",
             "respond": "Express concern and care\nAvoid criticizing, blaming, sounding judgmental, or minimizing the situation\nListen to and believe student’s responses\nProvide student with resources:\n-Single Stop Resources\n-Dean of Students Main Office\nBe supportive and encouraging if the student agrees to help",
             "recognize": "",
             "report": "DoS (413) 545-2684\nUndergraduate Dean\numass.edu/registrar/students/\nlist-academic-deans\nGraduate Dean\numass.edu/gradschool"
@@ -79,14 +79,14 @@
         },
         {
             "name": "International crisis or Immigration status issue",
-            "refer": "Urgent: IPO 413-545-2710\n(Dial 001 if abroad)\nAfter Hours: contact UMPD\n413-545-2121. UMPD will\nconnect you to the IPO staff\nperson on-call.\nAdvice and consultation:\nIPO (413) 545-2710\nSLSO (413) 545-1995",
+            "refer": "Urgent: IPO 413-545-2710\n(Dial 001 if abroad)\n\nAfter Hours: contact UMPD\n413-545-2121.\nUMPD will connect you to the IPO staff person on-call.\n\nAdvice and consultation:\nIPO (413) 545-2710\nSLSO (413) 545-1995",
             "respond": "Express concern and care\nAvoid criticizing, blaming, sounding judgmental, or minimizing the situation\nListen to and believe student’s responses\nBe supportive and encouraging if the student agrees to help",
             "recognize": "",
             "report": "IPO (413) 545-2710"
         },
         {
             "name": "Isolation, loneliness, difficulty transitioning into or out of the university community",
-            "refer": "Advice and consultation:\nCCPH (413) 545-2337\nDoS (413) 545-2684\nAdditional Resources\numass.edu/counseling/groups-and-workshops\numass.edu/events\numass.edu/offcampuslife\numass.edu/studentlife/rso",
+            "refer": "Advice and consultation:\nCCPH (413) 545-2337\nDoS (413) 545-2684\n\nAdditional Resources:\numass.edu/counseling/groups-and-workshops\numass.edu/events\numass.edu/offcampuslife\numass.edu/studentlife/rso",
             "respond": "Express concern and care\nAvoid minimizing the situation\nProvide student with resources:\n-CCPH support groups\n-Dean of Students Main Office\n-Resident Assistant or Resident Director\n-University events calender and Campus Pulse\nSuggest a campus event or Registered Student Organization (RSO)\nBe supportive and encourage student to connect to resources",
             "recognize": "",
             "report": ""
@@ -100,14 +100,14 @@
         },
         {
             "name": "Personal or family tragedy, loss, or crisis",
-            "refer": "CCPH (413) 545-2337\nDoS (413) 545-2684\nSLSO (413) 545-1995\nIPO (413) 545-2710\nSingle-Stop Resources\numass.edu/studentlife/\nsingle-stop",
+            "refer": "CCPH (413) 545-2337\nDoS (413) 545-2684\nSLSO (413) 545-1995\nIPO (413) 545-2710\n\nSingle-Stop Resources:\numass.edu/studentlife/single-stop",
             "respond": "Express concern and care\nAvoid criticizing, blaming, sounding judgmental, or minimizing the situation\nListen to and believe student’s responses\nBe supportive and encouraging if the student agrees to get help",
             "recognize": "",
             "report": "DoS (413) 545-2684\nUndergraduate Dean\numass.edu/registrar/students/\nlist-academic-deans\nGraduate Dean\numass.edu/gradschool"
         },
         {
             "name": "Relationship/interpersonal violence, sexual assault, stalking",
-            "refer": "Urgent: 911\nUMPD (413) 545-3111\nCWC Rape Crisis Hotline\n(413) 545-0800\n",
+            "refer": "Urgent: 911\nUMPD (413) 545-3111\n\nCWC Rape Crisis Hotline:\n(413) 545-0800\n",
             "respond": "Call 911 if there is a potential threat to student’s safety or the safety of others\nExpress concern and care\nListen to and believe student’s responses\nRemain calm, Showing outrage may shut student down\nDo not interpret student’s emotions as evidence of assault or violence\nAvoid criticizing, blaming, sounding judgmental, or minimizing the situation\nIdentify resources for safety planning\nRecommend medical intervention\nAvoid promising confidentiality - most university employees are Title IX responsible employees",
             "recognize": "",
             "report": "DoS (413) 545-2684\nTitle IX Coordination Team\nEO (413) 545-3464Advice and consultation:\nCWC (413) 545-0883\nCCPH (413) 545-2337\nDoS (413) 545-2684\nUHS (413) 577-5000"

@@ -95,77 +95,65 @@ class CrisisPicker extends Component {
       comp2 = <Accordian title={'Report'} data={this.state.report} />;
     }
 
-    render() {
-        let comp, comp2;
-        if(this.state.respond != '') {
-          comp = <Accordian
-              title = {"How to Respond?"}
-              data = {this.state.respond}
-          />
-          comp2 = <Accordian
-              title = {"Report"}
-              data = {this.state.report}
-          />
-        }
-
-        return (
-            <SafeAreaView style={styles.container}>
-                <ScrollView style={styles.scrollView}>
-            <View style={{ flex: 1, alignItems: "center" }}>
-                <Text style={styles.title}>Share what you know</Text>
-                <ModalSelector
-                            animationType={"fade"}
-                            style={styles.dropdown}
-                            data={options}
-
-                            optionTextStyle={styles.optionTextStyle}
-                            optionContainerStyle={styles.optionsContainerStyle}
-
-                            cancelContainerStyle={styles.cancelContainerStyle}
-                            cancelTextStyle={styles.cancelTextStyle}
-                            initValue="Select one"
-                            onChange={option => {
-                                for (var i = 0; i < list.length; i++) {
-                                    if (list[i].name == option.label) {
-                                        this.updateCrisis(i);
-                                        break;
-                                    }
-                                }
-                            }} />
-                <ParsedText
-                    style={styles.textContact}
-                    parse={
-                        [
-                            { type: 'phone', style: styles.phone, onPress: this.handlePhonePress },
-                        ]
-                    }
-                    childrenProps={{ allowFontScaling: false }}
-                >
-                    {this.state.contact}
-                </ParsedText>
-                <Text style={styles.textContact}></Text>
-                <View style={styles.answer}>
-                <Collapse style={styles.collapseContainer}>
-                    <CollapseHeader>
-                        <View style={styles.collapseTitle}>
-                            <Text style={styles.collapseTitleText}>How to respond?</Text>
-                        </View>
-                    </CollapseHeader>
-                    <CollapseBody style={styles.collapseBody}>
-                        <Text>{this.state.respond}</Text>
-                    </CollapseBody>
-                </Collapse>
-                <Collapse style={styles.collapseContainer}>
-                    <CollapseHeader>
-                        <View style={styles.collapseTitle}>
-                            <Text style={styles.collapseTitleText}>Report</Text>
-                        </View>
-                    </CollapseHeader>
-                    <CollapseBody style={styles.collapseBody}>
-                        <Text>{this.state.report}</Text>
-                    </CollapseBody>
-                </Collapse>
-                </View>
+    return (
+      <SafeAreaView style={styles.container}>
+        <ScrollView style={styles.scrollView}>
+          <View style={{flex: 1, alignItems: 'center'}}>
+            <Text style={styles.title}>Share what you know</Text>
+            <ModalSelector
+              animationType={'fade'}
+              style={styles.dropdown}
+              data={options}
+              optionTextStyle={styles.optionTextStyle}
+              optionContainerStyle={styles.optionsContainerStyle}
+              cancelContainerStyle={styles.cancelContainerStyle}
+              cancelTextStyle={styles.cancelTextStyle}
+              initValue="Select one"
+              onChange={option => {
+                for (var i = 0; i < list.length; i++) {
+                  if (list[i].name == option.label) {
+                    this.updateCrisis(i);
+                    break;
+                  }
+                }
+              }}
+            />
+            <ParsedText
+              style={styles.textContact}
+              parse={[
+                {
+                  type: 'phone',
+                  style: styles.phone,
+                  onPress: this.handlePhonePress,
+                },
+              ]}
+              childrenProps={{allowFontScaling: false}}>
+              {this.state.contact}
+            </ParsedText>
+            <Text style={styles.textContact} />
+            <View style={styles.answer}>
+              <Collapse style={styles.collapseContainer}>
+                <CollapseHeader>
+                  <View style={styles.collapseTitle}>
+                    <Text style={styles.collapseTitleText}>
+                      How to respond?
+                    </Text>
+                  </View>
+                </CollapseHeader>
+                <CollapseBody style={styles.collapseBody}>
+                  <Text>{this.state.respond}</Text>
+                </CollapseBody>
+              </Collapse>
+              <Collapse style={styles.collapseContainer}>
+                <CollapseHeader>
+                  <View style={styles.collapseTitle}>
+                    <Text style={styles.collapseTitleText}>Report</Text>
+                  </View>
+                </CollapseHeader>
+                <CollapseBody style={styles.collapseBody}>
+                  <Text>{this.state.report}</Text>
+                </CollapseBody>
+              </Collapse>
             </View>
           </View>
         </ScrollView>

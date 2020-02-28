@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Picker, Alert, View, Text, StyleSheet, Dimensions, Linking, SafeAreaView, ScrollView, Image } from 'react-native';
 import { CustomPicker } from 'react-native-custom-picker';
-import ModalSelector from 'react-native-modal-selector'
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
 import ParsedText from 'react-native-parsed-text';
 
@@ -62,20 +61,8 @@ class CrisisPicker extends Component {
         Alert.alert(`${phone} has been pressed!`);
         // Linking.openURL(`tel:${phone}`).catch((err) => console.error('Unable to place a call', err));
     }
-
-    render() {
-        let comp, comp2;
-        if (this.state.respond != '') {
-            comp = <Accordian
-                title={"How to Respond?"}
-                data={this.state.respond}
-            />
-            comp2 = <Accordian
-                title={"Report"}
-                data={this.state.report}
-            />
-        }
-
+    
+    render() {       
         return (
             <SafeAreaView style={styles.container}>
                 <ScrollView style={styles.scrollView}>
@@ -171,7 +158,6 @@ const styles = StyleSheet.create({
     cancelContainerStyle: {
         backgroundColor: 'white',
         borderRadius: 5
-
     },
     answer: {
         flex: 1,
@@ -194,19 +180,19 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1
     },
     title: {
-        fontSize: 40,
+        fontSize: 30,
         fontWeight: 'bold',
         fontFamily: 'Times New Roman',
         color: 'rgb(136, 28, 28)',
-        marginTop: height / 10
+        marginTop: height / 20
     },
     dropdown: {
         height: 50,
         width: width * 8 / 10,
         alignSelf: 'center',
-        marginTop: height * 0.02,
-        marginBottom: height * 0.02,
-        marginHorizontal: width * 0.1,
+        marginTop: height * 0.01,
+        marginBottom: 0,
+        // marginHorizontal: width * 0.1,
         fontSize: 30,
         fontFamily: 'Helvetica',
     },
@@ -218,12 +204,12 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textAlign: "center",
         fontFamily: 'Helvetica',
-        marginTop: height / 20,
-        marginBottom: height / 20
+        marginTop: height / 5,
+        marginBottom: 0
     },
     collapseContainer: {
         width: '95%',
-        marginTop: 10,
+        marginTop: 5,
     },
     collapseTitle: {
         height: 35,

@@ -80,6 +80,10 @@ class CrisisPicker extends Component {
             <SafeAreaView style={styles.container}>
                 <ScrollView style={styles.scrollView}>
             <View style={{ flex: 1, alignItems: "center" }}>
+                <Image 
+                    style= {{width: 100, height:100}}
+                      source={require('./assets/UnivOfMassLogo.png')}
+                    />
                 <Text style={styles.title}>Share what you know</Text>
                 <ModalSelector
                             animationType={"fade"}
@@ -116,21 +120,21 @@ class CrisisPicker extends Component {
                 <Collapse style={styles.collapseContainer}>
                     <CollapseHeader>
                         <View style={styles.collapseTitle}>
-                            <Text style={styles.collapseTitleText}>How to respond?</Text>
+                            <Text style={styles.collapseTitleText}>  How to respond?</Text>
                         </View>
                     </CollapseHeader>
                     <CollapseBody style={styles.collapseBody}>
-                        <Text>{this.state.respond}</Text>
+                        <Text style= {styles.collapseBodyText}>{this.state.respond}</Text>
                     </CollapseBody>
                 </Collapse>
                 <Collapse style={styles.collapseContainer}>
                     <CollapseHeader>
                         <View style={styles.collapseTitle}>
-                            <Text style={styles.collapseTitleText}>Report</Text>
+                            <Text style={styles.collapseTitleText}>  Report</Text>
                         </View>
                     </CollapseHeader>
                     <CollapseBody style={styles.collapseBody}>
-                        <Text>{this.state.report}</Text>
+                        <Text style= {styles.collapseBodyText}>{this.state.report}</Text>
                     </CollapseBody>
                 </Collapse>
                 </View>
@@ -150,7 +154,7 @@ const styles = StyleSheet.create({
     optionTextStyle: {
         fontFamily: 'Helvetica',
         backgroundColor: 'white',
-        color: 'rgb(136, 28, 28)',
+        color: 'black'
     },
     cancelTextStyle: {
         fontFamily: 'Helvetica',
@@ -209,7 +213,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontFamily: 'Helvetica',
         marginTop: height / 20,
-        marginBottom: height / 20
+        marginBottom: height / 40
     },
     collapseContainer: {
         width: '95%',
@@ -220,13 +224,19 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgb(136, 28, 28)'
     },
     collapseTitleText: {
-        fontSize: 23,
-        textAlign: 'center',
+        fontSize: 25,
+        textAlign: 'left',
+        alignContent: 'center',
         fontFamily: 'Helvetica',
         color: 'white'
     },
     collapseBody: {
-       // height: height / 5
+        paddingTop: 7,
+        paddingBottom: 7 
+    },
+    collapseBodyText: {
+        fontSize: 16,
+        fontFamily: 'Helvetica'
     }
 });
 

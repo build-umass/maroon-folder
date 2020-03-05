@@ -83,7 +83,6 @@ class CrisisPicker extends Component {
                         >
                             {this.state.contact}
                         </ParsedText>
-                        <Text style={styles.textContact}></Text>
                         <View style={styles.answer}>
                             <Collapse style={styles.collapseContainer}>
                                 <CollapseHeader>
@@ -135,7 +134,7 @@ const styles = StyleSheet.create({
         borderRadius: 5
     },
     answer: {
-        flex: 1,
+        flex: 2,
         width: '95%',
     },
     container: {
@@ -154,15 +153,14 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontFamily: 'Times New Roman',
         color: 'rgb(136, 28, 28)',
-        marginTop: height / 55
+        marginTop: height / 60
     },
     dropdown: {
-        height: 0,
-        width: width * 8 / 10,
+        height: '0%',
+        width: width * 9 / 10,
         alignSelf: 'center',
         marginTop: height * 0.001,
         marginBottom: 0,
-        // marginHorizontal: width * 0.1,
         fontSize: 30,
         fontFamily: 'Helvetica',
     },
@@ -175,18 +173,19 @@ const styles = StyleSheet.create({
         textAlign: "center",
         lineHeight: 30,
         fontFamily: 'Helvetica',
-        marginTop: height/5,
-
+        marginTop: height / 4,
+        marginBottom: 30,
     },
     collapseContainer: {
         width: '95%',
-        marginTop: 5,
+        marginTop: 8,
     },
     collapseTitle: {
-        height: 35,
+        height: 42,
         backgroundColor: 'rgb(136, 28, 28)'
     },
     collapseTitleText: {
+        marginTop: 7,
         fontSize: 25,
         textAlign: 'left',
         alignContent: 'center',

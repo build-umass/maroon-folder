@@ -19,8 +19,8 @@ const options = data.options;
 const list = dataVal.map(item => item);
 
 class CrisisPicker extends Component {
-  componentDidMount() {
-    SplashScreen.hide();
+  componentDidMount() {    
+    setTimeout(SplashScreen.hide(), 2500);
   }
   constructor(props) {
     super(props);

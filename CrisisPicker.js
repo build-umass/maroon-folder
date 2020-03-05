@@ -87,7 +87,7 @@ class CrisisPicker extends Component {
                             <Collapse style={styles.collapseContainer}>
                                 <CollapseHeader>
                                     <View style={styles.collapseTitle}>
-                                        <Text style={styles.collapseTitleText}>  How to respond?</Text>
+                                    <Text style={styles.collapseTitleText}>  How to respond?</Text>
                                     </View>
                                 </CollapseHeader>
                                 <CollapseBody style={styles.collapseBody}>
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgb(136, 28, 28)'
     },
     collapseTitleText: {
-        marginTop: 7,
+        marginTop: 6.5,
         fontSize: 25,
         textAlign: 'left',
         alignContent: 'center',

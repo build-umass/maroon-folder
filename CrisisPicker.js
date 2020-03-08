@@ -4,90 +4,82 @@ import { CustomPicker } from 'react-native-custom-picker';
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
 import ParsedText from 'react-native-parsed-text';
 
-import Accordian from './app/Accordian'
-import { Colors } from './app/Colors';
+import SplashScreen from 'react-native-splash-screen';
+import Accordian from './app/Accordian';
+import {Colors} from './app/Colors';
 
 import * as data from './data.json';
 var height = Dimensions.get('window').height;
 var width = Dimensions.get('window').width;
 
-import { Thumbnail, List, ListItem, Separator } from 'native-base';
+import {Thumbnail, List, ListItem, Separator} from 'native-base';
 
 const dataVal = data.crisis;
 const options = data.options;
-const list = dataVal.map((item) => item);
+const list = dataVal.map(item => item);
 
 class CrisisPicker extends Component {
+  
+  componentDidMount() {    
+    setTimeout(SplashScreen.hide(), 2500);
+  }
+  constructor(props) {
+    super(props);
 
-    constructor(props) {
-        super(props);
+    this.icons = {
+      up: require('./images/Arrowhead-01-128.png'),
+      down: require('./images/Arrowhead-Down-01-128.png'),
+    };
 
-        this.icons = {
-            'up': require('./images/Arrowhead-01-128.png'),
-            'down': require('./images/Arrowhead-Down-01-128.png')
-        };
+    this.state = {
+      // collapsed1:false, //do not show the body by default
+      // collapsed2:false,
+      id: '',
+      crisis: '',
+      contact: '',
+      respond: '',
+      report: '',
+      show: '',
+    };
+  }
 
-        this.state = {
-            // collapsed1:false, //do not show the body by default
-            // collapsed2:false,
-            id: '',
-            crisis: '',
-            contact: '',
-            respond: '',
-            report: '',
-            show: '',
-            showCall: true,
-        }
+  updateCrisis = id => {
+    this.setState({id: id});
+    if (id > -1) {
+      this.setState({
+        id: id,
+        crisis: dataVal[id].name,
+        contact: dataVal[id].refer,
+        respond: dataVal[id].respond,
+        report: dataVal[id].report,
+      });
     }
+  };
 
-    updateCrisis = (id) => {
-        this.setState({ id: id });
-        if (id > -1) {            
-            this.setState({ showCall: false, id: id, crisis: dataVal[id].name, contact: dataVal[id].refer, respond: dataVal[id].respond, report: dataVal[id].report });
-        }
-    }
+  renderOption(settings) {
+    const {item, getLabel} = settings;
+    return (
+      <View style={styles.optionContainer}>
+        <View style={styles.innerContainer}>
+          <Text style={{alignSelf: 'flex-start', padding: 8}}>
+            {getLabel(item.toString())}
+          </Text>
+        </View>
+      </View>
+    );
+  }
 
-    renderOption(settings) {
-        const { item, getLabel } = settings
-        return (
-            <View style={styles.optionContainer}>
-                <View style={styles.innerContainer}>
-                    <Text style={{ alignSelf: 'flex-start', padding: 8, }}>{getLabel(item.toString())}</Text>
-                </View>
-            </View>
-        )
-    }
+  handlePhonePress(phone, matchIndex) {
+    Alert.alert(`${phone} has been pressed!`);
+    // Linking.openURL(`tel:${phone}`).catch((err) => console.error('Unable to place a call', err));
+  }
 
-    handlePhonePress(phone, matchIndex) {
-        Alert.alert(`${phone} has been pressed!`);
-        // Linking.openURL(`tel:${phone}`).catch((err) => console.error('Unable to place a call', err));
-    }
-    
     render() {       
         return (
             <SafeAreaView style={styles.container}>
                 <ScrollView style={styles.scrollView}>
                     <View style={{ flex: 1, alignItems: "center" }}>
                         <Text style={styles.title}>Recognize and Respond</Text>
-                        {/* <ModalSelector
-                            animationType={"fade"}
-                            style={styles.dropdown}
-                            data={options}
-
-                            optionTextStyle={styles.optionTextStyle}
-                            optionContainerStyle={styles.optionsContainerStyle}
-
-                            cancelContainerStyle={styles.cancelContainerStyle}
-                            cancelTextStyle={styles.cancelTextStyle}
-                            initValue="Select one"
-                            onChange={option => {
-                                for (var i = 0; i < list.length; i++) {
-                                    if (list[i].name == option.label) {
-                                        this.updateCrisis(i);
-                                        break;
-                                    }
-                                }
-                            }} /> */}
                         <Picker
                             selectedValue={this.state.id}
                             style={styles.dropdown}

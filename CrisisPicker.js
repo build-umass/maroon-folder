@@ -35,14 +35,15 @@ class CrisisPicker extends Component {
             contact: '',
             respond: '',
             report: '',
-            show: ''
+            show: '',
+            showCall: true,
         }
     }
 
     updateCrisis = (id) => {
         this.setState({ id: id });
-        if (id > -1) {
-            this.setState({ id: id, crisis: dataVal[id].name, contact: dataVal[id].refer, respond: dataVal[id].respond, report: dataVal[id].report });
+        if (id > -1) {            
+            this.setState({ showCall: false, id: id, crisis: dataVal[id].name, contact: dataVal[id].refer, respond: dataVal[id].respond, report: dataVal[id].report });
         }
     }
 
@@ -96,7 +97,34 @@ class CrisisPicker extends Component {
                                 return (<Picker.Item label={item.name} value={index} key={index} />)
                             })}
                         </Picker>
-
+                        {
+                            this.state.showCall && <Text                             
+                            style = {{                                
+                                fontSize: 30,
+                                fontWeight: 'bold',
+                                textAlign: 'center',
+                                fontFamily: 'Times New Roman',
+                                color: 'rgb(136, 28, 28)',
+                                marginTop: height *0.25,
+                                color: 'black',
+                                textDecorationLine: 'none',                                
+                            }}>UMPD:</Text>                            
+                            
+                        }
+                        {
+                            this.state.showCall && <Text 
+                            // onPress = {this.handlePhonePress}
+                            style = {{
+                                fontSize: 30,
+                                fontWeight: 'bold',
+                                textAlign: 'center',
+                                fontFamily: 'Times New Roman',
+                                color: 'rgb(136, 28, 28)',
+                                marginTop: 0,
+                                color: 'blue',
+                                textDecorationLine: 'underline',                                
+                            }}>(413) 545-2121</Text>
+                        }
                         <ParsedText
                             style={styles.textContact}
                             parse={
@@ -110,7 +138,8 @@ class CrisisPicker extends Component {
                         </ParsedText>
                         <Text style={styles.textContact}></Text>
                         <View style={styles.answer}>
-                            <Collapse style={styles.collapseContainer1}>
+
+                        {    !this.state.showCall && <Collapse style={styles.collapseContainer}>
                                 <CollapseHeader>
                                     <View style={styles.collapseTitle}>
                                         <Text style={styles.collapseTitleText}>How to Respond?</Text>
@@ -120,7 +149,8 @@ class CrisisPicker extends Component {
                                     <Text style={styles.collapseBodyText}>{this.state.respond}</Text>
                                 </CollapseBody>
                             </Collapse>
-                            <Collapse style={styles.collapseContainer2}>
+                        }
+                        {   !this.state.showCall && <Collapse style={styles.collapseContainer}>
                                 <CollapseHeader>
                                     <View style={styles.collapseTitle}>
                                         <Text style={styles.collapseTitleText}>Report</Text>
@@ -130,6 +160,7 @@ class CrisisPicker extends Component {
                                     <Text style={styles.collapseBodyText}>{this.state.report}</Text>
                                 </CollapseBody>
                             </Collapse>
+                        }    
                         </View>
                     </View>
                 </ScrollView>

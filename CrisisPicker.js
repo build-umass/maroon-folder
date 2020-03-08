@@ -138,14 +138,15 @@ class CrisisPicker extends Component {
                         </ParsedText>
                         <Text style={styles.textContact}></Text>
                         <View style={styles.answer}>
+
                         {    !this.state.showCall && <Collapse style={styles.collapseContainer}>
                                 <CollapseHeader>
                                     <View style={styles.collapseTitle}>
-                                        <Text style={styles.collapseTitleText}>How to respond?</Text>
+                                        <Text style={styles.collapseTitleText}>How to Respond?</Text>
                                     </View>
                                 </CollapseHeader>
                                 <CollapseBody style={styles.collapseBody}>
-                                    <Text>{this.state.respond}</Text>
+                                    <Text style={styles.collapseBodyText}>{this.state.respond}</Text>
                                 </CollapseBody>
                             </Collapse>
                         }
@@ -156,7 +157,7 @@ class CrisisPicker extends Component {
                                     </View>
                                 </CollapseHeader>
                                 <CollapseBody style={styles.collapseBody}>
-                                    <Text>{this.state.report}</Text>
+                                    <Text style={styles.collapseBodyText}>{this.state.report}</Text>
                                 </CollapseBody>
                             </Collapse>
                         }    
@@ -237,22 +238,39 @@ const styles = StyleSheet.create({
         marginTop: height / 5,
         marginBottom: 0
     },
-    collapseContainer: {
-        width: '95%',
+    collapseContainer1: {        
+        width: '100%',
+        alignSelf: 'center',
+        marginTop: 10,   
+        marginBottom: 10,     
+        
+    },
+    collapseContainer2: {
+        width: '100%',
+        alignSelf: 'center',
         marginTop: 5,
+        marginBottom: 50
     },
     collapseTitle: {
-        height: 35,
+        borderRadius: 5,
+        padding: 8,
+        height: 50,
         backgroundColor: 'rgb(136, 28, 28)'
     },
-    collapseTitleText: {
+    collapseTitleText: {        
         fontSize: 23,
         textAlign: 'center',
         fontFamily: 'Helvetica',
-        color: 'white'
+        color: 'white',    
     },
     collapseBody: {
+        marginTop: 10,          
         // height: height / 5
+    },
+    collapseBodyText: {
+        fontSize: 18,
+        fontFamily: 'Helvetica',
+        color: 'black',
     }
 });
 

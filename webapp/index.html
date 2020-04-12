@@ -1,0 +1,244 @@
+<!doctype <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <base href="/">
+  <title>Material Design for Bootstrap</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="css/mdb.min.css">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+  <!-- jQuery -->
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Your custom scripts (optional) -->
+  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
+
+</head>
+<body>
+
+  <!-- Editable table -->
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Maroon Folder</h3>
+  <div class="card-body">
+    <div id="table" class="table-editable">
+      <button type="submit" id="sbtn" name="submit" class="btn btn-lg btn-warning">
+        <span id="sid"></span> Save</button>
+      <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
+            class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+      <table class="table table-bordered table-responsive-md table-striped text-center" id="contact">
+        <thead>
+          <tr>
+            <th class="text-center">Name</th>
+            <th class="text-center">Refer</th>
+            <th class="text-center">Respond</th>
+            <th class="text-center">Recognize</th>
+            <th class="text-center">Report</th>
+            <th class="text-center">Sort</th>
+            <th class="text-center">Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- This is our clonable table line -->
+          <tr class="hide">
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- Editable table -->
+
+</body>
+</html>
+
+
+
+
+<script>
+
+  const $tableID = $('#table');
+  const $BTN = $('#export-btn');
+  const $EXPORT = $('#export');
+
+  const newTr = `
+  <tr class="hide">
+  <td class="pt-3-half" contenteditable="true">Example</td>
+  <td class="pt-3-half" contenteditable="true">Example</td>
+  <td class="pt-3-half" contenteditable="true">Example</td>
+  <td class="pt-3-half" contenteditable="true">Example</td>
+  <td class="pt-3-half" contenteditable="true">Example</td>
+  <td class="pt-3-half">
+    <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
+    <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
+  </td>
+  <td>
+    <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light">Remove</button></span>
+  </td>
+  </tr>`;
+
+  $(document).ready(function() {
+
+    $.getJSON("data.json", function(data){
+     var problem_data = '';
+     $.each(data, function(key, value) {
+       if (key.localeCompare("options")) {
+         for (let i = 0; i < value.length; i++) {
+           problem_data += '<tr>';
+           problem_data += '<td class="pt-3-half" contenteditable="true">' + value[i].name + '</td>';
+           problem_data += '<td class="pt-3-half" contenteditable="true">' + value[i].refer + '</td>';
+           problem_data += '<td class="pt-3-half" contenteditable="true">' + value[i].respond + '</td>';
+           problem_data += '<td class="pt-3-half" contenteditable="true">' + value[i].recognize + '</td>';
+           problem_data += '<td class="pt-3-half" contenteditable="true">' + value[i].report + '</td>';
+           problem_data += '<td>';
+           problem_data += '<span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>';
+           problem_data += '<span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>';
+           problem_data += '</td>';
+           problem_data += '<td>';
+           problem_data += '<span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light">Remove</button></span>';
+           problem_data += '</td>';
+           problem_data += '</tr>';
+         }
+       }
+       });
+     $('#contact').append(problem_data);
+    });
+  });
+
+  $("#sbtn").click(function(e) {
+
+    // Horrendous code, but I guess it works lol
+    var json = '{\"crisis\": [';
+    let i = 0;
+    let $clone = $tableID.find('tr td.pt-3-half').not(":last").each(function() {
+      var $this = $(this);
+
+      if(i % 5 == 0) json += "{\"name\": " + "\"" + $this.html().toString() + "\"" +  ",";
+      if(i % 5 == 1) json += "\"refer\": " + "\"" + $this.html().toString() + "\"" + ",";
+      if(i % 5 == 2) json += "\"respond\": " + "\"" + $this.html().toString() + "\"" + ",";
+      if(i % 5 == 3) json += "\"recognize\": " + "\"" + $this.html().toString() + "\"" + ",";
+      if(i % 5 == 4) json += "\"report\": " + "\"" + $this.html().toString() + "\"" + "},";
+      i++;
+    });
+    json += "\"report\": " + "\"" + $tableID.find('tr td.pt-3-half').last().html().toString() + "\"" +"}";
+    json += ']}';
+    let str2 = json.replace(/\n/g, '\\n');
+    console.log(str2);
+
+    $.ajax({
+      type: 'POST',
+      url: "/save",
+      contentType: 'application/json',
+      data:  str2,
+      cache: false,
+      success: function (result) { console.log(result); }
+    });
+    // window.location.replace(window.location + "save");
+  });
+
+  $('.table-add').on('click', 'i', () => {
+
+   /*
+   const $clone = $tableID.find('tbody tr').last().clone(true).removeClass('hide table-line');
+
+   if ($tableID.find('tbody tr').length === 0) {
+     $('tbody').append(newTr);
+   }
+   */
+   var problem_data = '';
+   problem_data += '<tr>';
+   problem_data += '<td class="pt-3-half" contenteditable="true">' + '' + '</td>';
+   problem_data += '<td class="pt-3-half" contenteditable="true">' + '' + '</td>';
+   problem_data += '<td class="pt-3-half" contenteditable="true">' + '' + '</td>';
+   problem_data += '<td class="pt-3-half" contenteditable="true">' + '' + '</td>';
+   problem_data += '<td class="pt-3-half" contenteditable="true">' + '' + '</td>';
+   problem_data += '<td>';
+   problem_data += '<span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>';
+   problem_data += '<span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>';
+   problem_data += '</td>';
+   problem_data += '<td>';
+   problem_data += '<span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light">Remove</button></span>';
+   problem_data += '</td>';
+   problem_data += '</tr>';
+   $tableID.find('table').append(problem_data);
+  });
+
+
+
+  $tableID.on('click', '.table-remove', function () {
+
+   $(this).parents('tr').detach();
+  });
+
+  $tableID.on('click', '.table-up', function () {
+
+   const $row = $(this).parents('tr');
+
+   if ($row.index() === 1) {
+     return;
+   }
+
+   $row.prev().before($row.get(0));
+  });
+
+  $tableID.on('click', '.table-down', function () {
+
+   const $row = $(this).parents('tr');
+   $row.next().after($row.get(0));
+  });
+
+  // A few jQuery helpers for exporting only
+  jQuery.fn.pop = [].pop;
+  jQuery.fn.shift = [].shift;
+
+  $BTN.on('click', () => {
+
+   const $rows = $tableID.find('tr:not(:hidden)');
+   const headers = [];
+   const data = [];
+
+   // Get the headers (add special header logic here)
+   $($rows.shift()).find('th:not(:empty)').each(function () {
+
+     headers.push($(this).text().toLowerCase());
+   });
+
+   // Turn all existing rows into a loopable array
+   $rows.each(function () {
+     const $td = $(this).find('td');
+     const h = {};
+
+     // Use the headers from earlier to name our hash keys
+     headers.forEach((header, i) => {
+
+       h[header] = $td.eq(i).text();
+     });
+
+     data.push(h);
+   });
+
+   // Output the result
+   $EXPORT.text(JSON.stringify(data));
+  });
+</script>

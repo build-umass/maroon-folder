@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "maroon-folder-267618",
+  "private_key_id": "736a85f1ea21bf2dbc66e1829aa4e57a74cb8f33",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDJEUIytf7NiBfb\npnyUTV372n6YQQeqAUZNzLcbUV0y0rs9mJ3zrFW1GSBz5dAgsz+tkksJpoTeLsFl\nt0jtnN7md6EA6fRTeSpoHThDRHa93/cxEFuclt3+HWerrgrEhaEcDLfxU0Bp/M2X\npgHXKsVc0TDhKV3vnT6JMdeCV1k3+duwZGb2mW8NsDAekZIMGuSYH01NmfSUrgTl\nAIioFdpEmp08H7LqPunqYeFETroM2kasiDbob+5rGzcrMAPc4zCvubQS+s/Gr+sw\nEDv5BEVGzGU4rN1G4d4Cn6IpI4hgQXJfkn9nXXnnw0UKErGsDDYTTaLM54j6pU/g\n4qb8RPONAgMBAAECggEAJVY22ndYvj5WHdPj4N8gA29eoDO9MljDvxkzbFd2zMP8\ngJLpS9E15ifpEpR7ikL24Wqf1AYvuJlqkNKQ8Iy3iIjw5RxMoj6G/Sfl5XneaeJf\nwuTkeia6yOAZevQZ7EXbNbv34VCCDtxiqhUp1NSMqzBuWPVnS+JBdVUDzaCeQOoo\noJ6u+QzPu69+fPWjdSVxI6bZ6yojh1kHsk5uCn4scFr5msHTNCyfr0NlIMPrIrXr\nFIzvOYCHj/dm1ZV7UF5K2nmOw7lRQ10aHmVAaoj69m3wPwDTFASyiY6pXbQ+LJFe\n7keG5rsKFVc4oKvoG6tD7aw/NeLn5Bwhl4x3GeDjwQKBgQD0IPCHz1e/tO2sO1HK\nT8qUZsQqlU3tMnxEXJ6za+yiOplQcEdYCb1j8OKWSbRFywRTh5WcstXkPGJdesZE\nQr80o4BdNNBPS/4Ts9yChqUCRoL02SjGxkKhIgZniFlUmTYHzkJu6u6azzkGupmr\ntMa8Vf1e6xgFTeNuR2P6fgXZzQKBgQDS2ERCsz+2T0M9aeFxGrVlBYB7r2HCjgly\nVfI9zi/QpyeR9PzAwNG28r+TQSKhmNgCq1xShVUarg1kW3AOWkds11Ywqo2UoguA\nddNfwTdiGrnEKOfX0bQu2KylijiwnkVlaSP9nI+rjjUqN+Fi6SzBqCXasJ8MINUN\nFP1E5orAwQKBgQCbU8H2hyQLo7B9HxkBIheAqIozld+JBdAvJscK3aYn6iTWGzop\nd7j6t69Tc/2xUmSkSOYWV2rj1s+3LoCrudQyR71KkGnhqjY0jwHEQqsGcZqs8uaQ\n4mBOaXmtsgE0ZG8ONFvseqnp8eMUtvFDYLf56LRXCjm0VkRYTC/+luReGQKBgBRI\nzCBioFGIxJ5G7nJ0MFlcsySzFcOi6JPAYwLBMGZxfmQTXrGom0RvjDC9hnhnfPic\nxdAGlc5wSkeKaHhpBRAak2cxMVfIUzTzoPdIXmyox5BwowVnXl9XZxyx9IxBXcnI\n2LaQdl3523GJWLysVCr5Y1LrxRFkozqT913GlDjBAoGBAK7GmbHZmcZHvcMtuR3O\nqGOwevck/9WDgDjRDcakx1qoAXVORDSd9uCl+5uyuwSdpAp+TdwKWRw0apOFnje/\nMPFBEm7+Up2rIa3g1m/INgFNv35xV0hO7UAhwqM7dBWfS9ZS5eT4vjfoWeztbufH\nNILyg+M66G96ncvHnBtyt4dz\n-----END PRIVATE KEY-----\n",
+  "client_email": "cloud-storage@maroon-folder-267618.iam.gserviceaccount.com",
+  "client_id": "113037527905060829365",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cloud-storage%40maroon-folder-267618.iam.gserviceaccount.com"
+}
